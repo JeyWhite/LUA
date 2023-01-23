@@ -35,7 +35,7 @@ function DigitByPos(digit, pos)
         if pos == 4 then
             res = (WORDS[wordsSet][digit][2] .. " " .. PlaceByPos(digit, pos))
         else
-            if wordsSet<3 then
+            if wordsSet<2 then
                 res = (WORDS[wordsSet][digit][1] .. " " .. PlaceByPos(digit, pos))
             else
                 res = (WORDS[wordsSet][digit] .. " " .. PlaceByPos(digit, pos))
