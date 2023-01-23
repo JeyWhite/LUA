@@ -31,11 +31,15 @@ function DigitByPos(digit, pos)
     local wordsSet = ((pos - 1)%3)+1
     if digit == 0 then
         res = ""
-    elseif digit > 0 and digit <= 2 then
+    elseif digit > 0 and digit <= 2  then
         if pos == 4 then
             res = (WORDS[wordsSet][digit][2] .. " " .. PlaceByPos(digit, pos))
         else
-            res = (WORDS[wordsSet][digit][1] .. " " .. PlaceByPos(digit, pos))
+            if wordsSet<3 then
+                res = (WORDS[wordsSet][digit][1] .. " " .. PlaceByPos(digit, pos))
+            else
+                res = (WORDS[wordsSet][digit] .. " " .. PlaceByPos(digit, pos))
+            end
         end
     elseif digit > 2 and digit < 20 then
         res = (WORDS[wordsSet][digit] .. " " .. PlaceByPos(digit, pos))
@@ -85,4 +89,4 @@ function NumToWords(num)
     return res
 end
 
-print(NumToWords(82017511614))
+print(NumToWords(123))
